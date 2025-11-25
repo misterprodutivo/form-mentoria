@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação para Mentoria</title>
+    <link rel="icon" href="gerenciamento-de-conteudo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- Página de Introdução -->
+        <div class="intro-container" id="intro">
+            <h1 class="intro-title">Aplicação para a Mentor[IA] individual de Automação e IA</h1>
+            <p class="intro-subtitle">Essas perguntas nos ajudarão a ter um panorama claro do conhecimento inicial, dos
+                objetivos e das estratégias que focaremos para acelerar ainda mais os seus resultados.</p>
+            <button class="btn btn-start" onclick="startForm()">Começar</button>
+        </div>
+
+        <div class="question-container">
+            <!-- Questão 1 -->
+            <div class="question hidden" id="question1">
+                <div class="question-number">1 de 10</div>
+                <h2 class="question-text">Digite seu nome completo</h2>
+                <input type="text" class="input-field" id="fullName" placeholder="Seu nome completo">
+                <div class="error-message hidden" id="name-error">Por favor, insira seu nome completo</div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(1)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(1)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="question hidden" id="question2">
+                <div class="question-number">2 de 10</div>
+                <h2 class="question-text">Qual seu WhatsApp?</h2>
+                <input type="tel" class="input-field" id="whatsapp" placeholder="(11) 99999-9999">
+                <div class="error-message hidden" id="whatsapp-error">Por favor, insira um número de WhatsApp válido
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(2)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(2)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="question hidden" id="question3">
+                <div class="question-number">3 de 10</div>
+                <h2 class="question-text">Seu @ no Instagram</h2>
+                <input type="text" class="input-field" id="instagram" placeholder="@seuuser">
+                <div class="error-message hidden" id="instagram-error">Por favor, insira seu @ do Instagram</div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(3)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(3)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 4 - Nível de conhecimento com Automações e IA -->
+            <div class="question hidden green-section" id="question4">
+                <div class="question-number">4 de 10</div>
+                <h2 class="question-text">Qual seu nível de conhecimento com Automações e IA?</h2>
+                <div class="options">
+                    <div class="option" data-value="Iniciante - Nunca usei">Iniciante - Nunca usei</div>
+                    <div class="option" data-value="Básico - Já testei algumas ferramentas">Básico - Já testei algumas
+                        ferramentas</div>
+                    <div class="option" data-value="Intermediário - Já criei automações simples">Intermediário - Já
+                        criei automações simples</div>
+                    <div class="option" data-value="Avançado - Tenho experiência sólida">Avançado - Tenho experiência
+                        sólida</div>
+                    <div class="option" data-value="Expert - Trabalho profissionalmente com isso">Expert - Trabalho
+                        profissionalmente com isso</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(4)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(4)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 5 - Renda/Faturamento mensal -->
+            <div class="question hidden green-section" id="question5">
+                <div class="question-number">5 de 10</div>
+                <h2 class="question-text">Qual seu faturamento mensal atual?</h2>
+                <div class="options">
+                    <div class="option" data-value="Ainda não tenho renda">Ainda não tenho renda</div>
+                    <div class="option" data-value="Até R$ 3.000">Até R$ 3.000</div>
+                    <div class="option" data-value="R$ 3.000 - R$ 7.000">R$ 3.000 - R$ 7.000</div>
+                    <div class="option" data-value="R$ 7.000 - R$ 15.000">R$ 7.000 - R$ 15.000</div>
+                    <div class="option" data-value="Acima de R$ 15.000">Acima de R$ 15.000</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(5)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(5)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 6 - Profissão atual -->
+            <div class="question hidden green-section" id="question6">
+                <div class="question-number">6 de 10</div>
+                <h2 class="question-text">Qual sua situação profissional atual?</h2>
+                <div class="options">
+                    <div class="option" data-value="CLT">CLT</div>
+                    <div class="option" data-value="Empreendedor/MEI">Empreendedor/MEI</div>
+                    <div class="option" data-value="Freelancer/Autônomo">Freelancer/Autônomo</div>
+                    <div class="option" data-value="Desempregado">Desempregado</div>
+                    <div class="option" data-value="Estudante">Estudante</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(6)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(6)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 7 - Objetivo claro -->
+            <div class="question hidden green-section" id="question7">
+                <div class="question-number">7 de 10</div>
+                <h2 class="question-text">Qual é a sua meta financeira nos próximos 3 meses trabalhando com agentes de
+                    IA?</h2>
+                <div class="options">
+                    <div class="option" data-value="Quero fazer minha primeira renda com isso">A - Quero fazer minha
+                        primeira renda com isso</div>
+                    <div class="option" data-value="Quero ganhar R$2 a R$5k">B - Quero ganhar R$2 a R$5k</div>
+                    <div class="option" data-value="Quero ganhar R$5k a R$10k">C - Quero ganhar R$5k a R$10k</div>
+                    <div class="option" data-value="Quero fechar clientes grandes e ganhar R$10k+">D - Quero fechar
+                        clientes grandes e ganhar R$10k+</div>
+                    <div class="option" data-value="Quero construir um negócio de verdade nesse mercado">E - Quero
+                        construir um negócio de verdade nesse mercado</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(7)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(7)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 8 - Tempo disponível -->
+            <div class="question hidden green-section" id="question8">
+                <div class="question-number">8 de 10</div>
+                <h2 class="question-text">Quantas horas por semana você tem disponível para se dedicar?</h2>
+                <div class="options">
+                    <div class="option" data-value="Menos de 5 horas">Menos de 5 horas</div>
+                    <div class="option" data-value="5-10 horas">5-10 horas</div>
+                    <div class="option" data-value="10-20 horas">10-20 horas</div>
+                    <div class="option" data-value="Mais de 20 horas">Mais de 20 horas</div>
+                    <div class="option" data-value="Tempo integral">Tempo integral</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(8)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(8)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 9 - Investimento -->
+            <div class="question hidden green-section" id="question9">
+                <div class="question-number">9 de 10</div>
+                <h2 class="question-text">Você está disposto a investir R$ 1.500 na mentoria?</h2>
+                <div class="options">
+                    <div class="option" data-value="Sim, consigo investir">Sim, consigo investir</div>
+                    <div class="option" data-value="Preciso de parcelamento">Preciso de parcelamento</div>
+                    <div class="option" data-value="Não tenho condições no momento">Não tenho condições no momento</div>
+                    <div class="option" data-value="Preciso pensar melhor">Preciso pensar melhor</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(9)">Voltar</button>
+                    <button class="btn btn-next" onclick="nextQuestion(9)">Próxima</button>
+                </div>
+            </div>
+
+            <!-- Questão 10 - Urgência -->
+            <div class="question hidden green-section" id="question10">
+                <div class="question-number">10 de 10</div>
+                <h2 class="question-text">Se for aprovado, consegue começar imediatamente?</h2>
+                <div class="options">
+                    <div class="option" data-value="Sim, imediatamente">Sim, imediatamente</div>
+                    <div class="option" data-value="Em até 7 dias">Em até 7 dias</div>
+                    <div class="option" data-value="Em até 30 dias">Em até 30 dias</div>
+                    <div class="option" data-value="Preciso de mais tempo">Preciso de mais tempo</div>
+                </div>
+                <div class="buttons">
+                    <button class="btn btn-prev" onclick="prevQuestion(10)">Voltar</button>
+                    <button class="btn btn-submit" onclick="submitForm()">Enviar</button>
+                </div>
+            </div>
+
+            <!-- Tela de agradecimento -->
+            <div class="question hidden" id="thankYou">
+                <h2 class="question-text">Obrigado!</h2>
+                <p style="font-size: 18px; color: #666; margin-top: 20px; line-height: 1.6;">Agradecemos pelas
+                    informações. Em breve entraremos em contato pelo WhatsApp para dar continuidade ao processo de
+                    automatização do seu negócio...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Armazenar respostas
+        const answers = {
+            fullName: '',
+            whatsapp: '',
+            instagram: '',
+            knowledgeLevel: '',
+            monthlyRevenue: '',
+            profession: '',
+            financialGoal: '',
+            weeklyTime: '',
+            investmentWillingness: '',
+            urgency: ''
+        };
+
+        // Inicializar seleção de opções
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function () {
+                // Remover seleção de outras opções no mesmo grupo
+                const parent = this.parentElement;
+                parent.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+
+                // Selecionar a opção clicada
+                this.classList.add('selected');
+
+                // Armazenar resposta
+                const questionId = this.closest('.question').id;
+                const value = this.getAttribute('data-value');
+
+                switch (questionId) {
+                    case 'question4':
+                        answers.knowledgeLevel = value;
+                        break;
+                    case 'question5':
+                        answers.monthlyRevenue = value;
+                        break;
+                    case 'question6':
+                        answers.profession = value;
+                        break;
+                    case 'question7':
+                        answers.financialGoal = value;
+                        break;
+                    case 'question8':
+                        answers.weeklyTime = value;
+                        break;
+                    case 'question9':
+                        answers.investmentWillingness = value;
+                        break;
+                    case 'question10':
+                        answers.urgency = value;
+                        break;
+                }
+            });
+        });
+
+        // Iniciar formulário (da página de introdução)
+        function startForm() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('question1').classList.remove('hidden');
+            updateProgress(1);
+        }
+
+        // Atualizar barra de progresso
+        function updateProgress(currentQuestion) {
+            const progress = document.getElementById('progress');
+            const percentage = ((currentQuestion) / 10) * 100;
+            progress.style.width = `${percentage}%`;
+        }
+
+        // Navegar para a próxima pergunta
+        function nextQuestion(currentQuestion) {
+            // Validar campos de entrada
+            if (currentQuestion === 1) {
+                const nameInput = document.getElementById('fullName');
+                if (!nameInput.value.trim()) {
+                    document.getElementById('name-error').classList.remove('hidden');
+                    return;
+                }
+                answers.fullName = nameInput.value.trim();
+                document.getElementById('name-error').classList.add('hidden');
+            }
+
+            if (currentQuestion === 2) {
+                const whatsappInput = document.getElementById('whatsapp');
+                const cleanWhatsapp = whatsappInput.value.replace(/\D/g, '');
+
+                if (!cleanWhatsapp || cleanWhatsapp.length < 10) {
+                    document.getElementById('whatsapp-error').classList.remove('hidden');
+                    return;
+                }
+                answers.whatsapp = cleanWhatsapp;
+                document.getElementById('whatsapp-error').classList.add('hidden');
+            }
+
+            if (currentQuestion === 3) {
+                const instagramInput = document.getElementById('instagram');
+                if (!instagramInput.value.trim()) {
+                    document.getElementById('instagram-error').classList.remove('hidden');
+                    return;
+                }
+                answers.instagram = instagramInput.value.trim();
+                document.getElementById('instagram-error').classList.add('hidden');
+            }
+
+            // Validar se uma opção foi selecionada (para perguntas de múltipla escolha)
+            if (currentQuestion >= 4 && currentQuestion < 10) {
+                const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
+                const selectedOption = currentQuestionElement.querySelector('.option.selected');
+
+                if (!selectedOption) {
+                    alert('Por favor, selecione uma opção antes de continuar.');
+                    return;
+                }
+            }
+
+            // Esconder pergunta atual
+            document.getElementById(`question${currentQuestion}`).classList.add('hidden');
+
+            // Mostrar próxima pergunta
+            document.getElementById(`question${currentQuestion + 1}`).classList.remove('hidden');
+
+            // Atualizar barra de progresso
+            updateProgress(currentQuestion + 1);
+        }
+
+        // Voltar para a pergunta anterior
+        function prevQuestion(currentQuestion) {
+            // Esconder pergunta atual
+            document.getElementById(`question${currentQuestion}`).classList.add('hidden');
+
+            // Mostrar pergunta anterior
+            if (currentQuestion === 1) {
+                document.getElementById('intro').classList.remove('hidden');
+            } else {
+                document.getElementById(`question${currentQuestion - 1}`).classList.remove('hidden');
+            }
+
+            // Atualizar barra de progresso
+            updateProgress(currentQuestion - 1);
+        }
+
+        // Função para enviar dados para o webhook
+        async function sendToWebhook(data) {
+            try {
+                const response = await fetch('https://webhook.johnvic.shop/webhook/qualificacao-automacao', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    console.log('Dados enviados com sucesso para o webhook');
+                    return true;
+                } else {
+                    console.error('Erro ao enviar dados para o webhook:', response.status);
+                    return false;
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+                return false;
+            }
+        }
+
+        // Validar e enviar formulário
+        async function submitForm() {
+            // Validar última pergunta
+            const currentQuestionElement = document.getElementById('question10');
+            const selectedOption = currentQuestionElement.querySelector('.option.selected');
+
+            if (!selectedOption) {
+                alert('Por favor, selecione uma opção antes de enviar.');
+                return;
+            }
+
+            // Armazenar última resposta
+            answers.urgency = selectedOption.getAttribute('data-value');
+
+            // Mostrar loading no botão
+            const submitBtn = document.querySelector('.btn-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+
+            // Adicionar timestamp
+            const submissionData = {
+                ...answers,
+                timestamp: new Date().toISOString(),
+                source: 'form-mentoria'
+            };
+
+            // Enviar dados para o webhook
+            const success = await sendToWebhook(submissionData);
+
+            // Restaurar botão
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+
+            if (success) {
+                // Mostrar tela de agradecimento
+                document.getElementById('question10').classList.add('hidden');
+                document.getElementById('thankYou').classList.remove('hidden');
+                document.getElementById('progress').style.width = '100%';
+
+                // Log no console para debug
+                console.log('Respostas do formulário:', submissionData);
+            } else {
+                alert('Erro ao enviar o formulário. Por favor, tente novamente.');
+            }
+        }
+
+        // Inicializar barra de progresso
+        updateProgress(0);
+    </script>
+</body>
+
+</html>
